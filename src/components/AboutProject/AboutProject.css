@@ -1,0 +1,112 @@
+.project {
+    background: #202020;
+}
+
+.project__container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 320px;
+    min-height: 608px;
+
+    padding: 110px 70px 0;
+}
+
+.project__title {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+
+    border-bottom: 1px solid #DADADA;
+    margin: 0 0 70px;
+    padding-bottom: 20px;
+}
+
+.project__info {
+    display: flex;
+    gap: 55px;
+    margin-bottom: 110px;
+}
+
+.project__info-column {
+
+}
+
+.project__info-title {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+    margin: 0 0 26px;
+}
+
+.project__info-about {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.project__time {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    /*align-items: center;*/
+    /*justify-items: center;*/
+}
+
+.project__part {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height, or 121% */
+
+    text-align: center;
+
+    color: #8B8B8B;
+    padding: 14px;
+}
+
+.project__part_first {
+    background-color: #3DDC84;
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+
+    color: #000000;
+    padding: 9px;
+}
+
+.project__part_second {
+    background-color: #303030;
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+
+    color: #FFFFFF;
+    padding: 9px;
+}
