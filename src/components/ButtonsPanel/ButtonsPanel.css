@@ -1,0 +1,29 @@
+.buttons-panel__signin {
+  padding: 8px 20px;
+  background: #3DDC84;
+  border-radius: 3px;
+  margin-left: 30px;
+  border: none;
+
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: #000;
+  cursor: pointer;
+}
+
+.buttons-panel__signup {
+  padding: 8px 0;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #FFF;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
