@@ -1,0 +1,72 @@
+.portfolio {
+    background: #202020;;
+}
+
+.portfolio__container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 320px;
+
+    padding: 0 70px 125px;
+}
+
+.portfolio__title {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+
+
+    color: #8B8B8B;
+
+    mix-blend-mode: normal;
+    margin: 0 0 42px;
+}
+
+.portfolio__sites {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.portfolio__sites-item {
+    border-bottom: 1px solid #424242;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.portfolio__sites-item:last-of-type {
+    border-bottom: none;
+}
+
+.portfolio__site-link {
+    text-decoration: none;
+}
+
+.portfolio__site {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 50px;
+    /* identical to box height, or 167% */
+
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio__site::after {
+    content: "";
+    width: 29px;
+    height: 60px;
+    background: url("../../images/arrow.svg") no-repeat center;
+    display: inline-block;
+}
