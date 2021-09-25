@@ -5,7 +5,7 @@ function AboutMe() {
   return (
     <section className="about">
       <div className="about__container">
-        <h2 className="about__title">Студент</h2>
+        <h2 id="Студент" className="about__title">Студент</h2>
 
         <div className="about__wrap">
           <div className="about__column about__column_person">
@@ -17,10 +17,10 @@ function AboutMe() {
               курс по&nbsp;веб-разработке, начал заниматься фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.</p>
             <ul className="about__social">
               <li className="about__social-item">
-                <a href="https://facebook.com" className="about__social-link">Facebook</a>
+                <a href="https://vk.com/kirintsev" className="about__social-link" target="_blank" rel="noopener noreferrer">Vkontakte</a>
               </li>
               <li className="about__social-item">
-                <a href="https://facebook.com" className="about__social-link">Github</a>
+                <a href="https://github.com/SergeyKirintsev" className="about__social-link" target="_blank" rel="noopener noreferrer">Github</a>
               </li>
             </ul>
           </div>
