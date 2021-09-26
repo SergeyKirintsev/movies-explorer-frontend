@@ -113,3 +113,29 @@
 
     text-decoration: none;
 }
+
+@media screen and (max-width: 1000px) {
+    .about__container {
+        padding: 90px 50px;
+    }
+    .about__name {
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .about__info {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0 0 20px;
+    }
+    .about__description {
+        font-size: 12px;
+        line-height: 18px;
+        margin: 0 0 87px;
+    }
+    .about__column_person {
+        max-width: 364px;
+    }
+    .about__avatar {
+        max-width: 255px;
+    }
+}

@@ -70,3 +70,13 @@
     background: url("../../images/arrow.svg") no-repeat center;
     display: inline-block;
 }
+
+@media screen and (max-width: 1000px) {
+    .portfolio__container {
+        padding: 0 50px 92px;
+    }
+    .portfolio__site {
+        font-size: 28px;
+        line-height: 50px;
+    }
+}

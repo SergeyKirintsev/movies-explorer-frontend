@@ -7,9 +7,9 @@
     margin: 0 auto;
     max-width: 1280px;
     min-width: 320px;
-    min-height: 625px;
+    /*min-height: 625px;*/
 
-    padding: 100px 70px 0;
+    padding: 100px 70px;
     display: flex;
     flex-direction: column;
 }
@@ -88,4 +88,22 @@
     background: #303030;
     border-radius: 10px;
     padding: 21px 0;
+}
+
+@media screen and (max-width: 1000px) {
+    .techs__container {
+        padding: 90px 50px;
+    }
+    .techs__title {
+        padding-bottom: 23px;
+        margin: 0 0 80px;
+    }
+    .techs__description {
+        margin: 0 auto 73px;
+    }
+    .techs__list-item {
+        font-size: 12px;
+        line-height: 15px;
+        min-width: 84px;
+    }
 }

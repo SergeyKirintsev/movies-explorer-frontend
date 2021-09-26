@@ -68,3 +68,12 @@
 
     color: #FFFFFF;
 }
+
+@media screen and (max-width: 1000px) {
+    .footer__container {
+        padding: 42px 30px 20px;
+    }
+    .footer__title {
+
+    }
+}
