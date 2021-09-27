@@ -8,7 +8,7 @@
     max-width: 1280px;
     min-width: 320px;
 
-    padding: 110px 70px 100px;
+    padding: 110px 70px;
     display: flex;
     flex-direction: column;
 }
@@ -27,7 +27,7 @@
 
     border-bottom: 1px solid #DADADA;
     margin: 0 0 66px;
-    padding-bottom: 20px;
+    padding-bottom: 23px;
 }
 
 .about__wrap {
@@ -121,6 +121,7 @@
     .about__name {
         font-size: 40px;
         line-height: 1;
+        margin: 0 0 16px;
     }
     .about__info {
         font-size: 12px;
