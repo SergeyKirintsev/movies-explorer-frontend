@@ -26,3 +26,14 @@
 .nav-tab__link:last-of-type {
     margin: 0;
 }
+
+@media screen and (max-width: 700px) {
+    .nav-tab {
+        min-height: 66px;
+    }
+    .nav-tab__link {
+        font-size: 11px;
+        line-height: 1.45;
+        margin-right: 24px;
+    }
+}

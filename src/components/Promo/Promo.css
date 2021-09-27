@@ -30,3 +30,17 @@
         padding-top: 326px;
     }
 }
+
+@media screen and (max-width: 700px) {
+    .promo {
+        min-height: 570px;
+        background-position-y: 142px;
+        background-size: 248px 248px;
+        padding-top: 207px;
+    }
+    .promo__title {
+        font-size: 31px;
+        line-height: 1.26;
+        max-width: 300px;
+    }
+}
