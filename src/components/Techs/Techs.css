@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
-    line-height: 27px;
+    line-height: 1.23;
     /* identical to box height */
 
     letter-spacing: -0.04em;
@@ -36,7 +36,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 50px;
-    line-height: 58px;
+    line-height: 1.16;
     /* identical to box height, or 116% */
 
     text-align: center;
@@ -51,7 +51,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 1.43;
     /* or 143% */
 
     text-align: center;
@@ -76,7 +76,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 1.21;
     /* identical to box height */
 
     text-align: center;
@@ -103,12 +103,12 @@
     }
     .techs__description {
         font-size: 12px;
-        line-height: 18px;
+        line-height: 1.5;
         margin: 0 auto 83px;
     }
     .techs__list-item {
         font-size: 12px;
-        line-height: 15px;
+        line-height: 1.25;
         min-width: 84px;
     }
 }

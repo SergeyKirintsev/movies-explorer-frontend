@@ -16,7 +16,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 20px;
+    line-height: 1.11;
     /* identical to box height, or 111% */
 
 
@@ -51,7 +51,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 30px;
-    line-height: 50px;
+    line-height: 1.67;
     /* identical to box height, or 167% */
 
     letter-spacing: -0.04em;
@@ -77,6 +77,6 @@
     }
     .portfolio__site {
         font-size: 28px;
-        line-height: 50px;
+        line-height: 1.79;
     }
 }

@@ -18,7 +18,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
-    line-height: 27px;
+    line-height: 1.23;
     /* identical to box height */
 
     letter-spacing: -0.04em;
@@ -54,7 +54,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 50px;
-    line-height: 58px;
+    line-height: 1.16;
     /* identical to box height, or 116% */
 
     letter-spacing: -0.04em;
@@ -69,7 +69,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 20px;
+    line-height: 1.11;
     /* identical to box height, or 111% */
 
 
@@ -84,7 +84,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 1.57;
     /* or 157% */
 
 
@@ -107,7 +107,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 1.21;
     /* identical to box height */
     color: #FFFFFF;
 
@@ -120,16 +120,16 @@
     }
     .about__name {
         font-size: 40px;
-        line-height: 40px;
+        line-height: 1;
     }
     .about__info {
         font-size: 12px;
-        line-height: 18px;
+        line-height: 1.5;
         margin: 0 0 20px;
     }
     .about__description {
         font-size: 12px;
-        line-height: 18px;
+        line-height: 1.5;
         margin: 0 0 87px;
     }
     .about__column_person {
