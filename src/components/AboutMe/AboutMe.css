@@ -140,3 +140,52 @@
         max-width: 255px;
     }
 }
+
+@media screen and (max-width: 700px) {
+    .about__container {
+        padding: 70px 14px;
+    }
+    .about__title {
+        font-size: 18px;
+        line-height: 1.22;
+        padding-bottom: 28px;
+        margin-bottom: 60px;
+    }
+    .about__column_person {
+        order: 2;
+    }
+    .about__column_avatar {
+        order: 1;
+        width: 292px;
+        margin-bottom: 40px;
+    }
+    .about__wrap {
+        align-items: center;
+        flex-direction: column;
+    }
+    .about__avatar {
+        max-width: 292px;
+        max-height: 352px;
+        height: 352px;
+    }
+    .about__name {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+    .about__info {
+        font-size: 11px;
+        line-height: 1.45;
+        margin-bottom: 20px;
+    }
+    .about__description {
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 1.45;
+        margin-bottom: 40px;
+    }
+    .about__social-link {
+        font-size: 14px;
+        line-height: 1.21;
+    }
+}

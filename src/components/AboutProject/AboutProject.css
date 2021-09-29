@@ -123,3 +123,44 @@
         margin: 0 0 20px;
     }
 }
+
+@media screen and (max-width: 700px) {
+    .project__container {
+        padding: 70px 18px;
+    }
+    .project__title {
+        font-size: 18px;
+        line-height: 1.22;
+        margin: 0 0 60px;
+        padding-bottom: 28px;
+    }
+    .project__info {
+        display: block;
+        margin-bottom: 60px;
+    }
+    .project__info-title {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0 0 16px;
+    }
+    .project__info-about {
+        font-size: 11px;
+        line-height: 1.45;
+    }
+    .project__info-column {
+        margin-bottom: 56px;
+    }
+    .project__info-column:last-of-type {
+        margin-bottom: 0;
+    }
+    .project__part {
+        font-size: 11px;
+        line-height: 1.18;
+        padding: 11px;
+    }
+    .project__time {
+        grid-template-columns: 100px 1fr;
+        /*align-items: center;*/
+        /*justify-items: center;*/
+    }
+}
