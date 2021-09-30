@@ -82,10 +82,13 @@
     .footer__title {
         font-size: 12px;
         line-height: 1.25;
+        margin-bottom: 30px;
     }
     .footer__link-list {
         flex-direction: column;
         align-items: center;
+        gap: 8px;
+        margin-bottom: 30px;
     }
     .footer__wrap {
         flex-direction: column;
@@ -93,6 +96,12 @@
     }
     .footer__copyright {
         order: 2;
+        font-size: 12px;
+        line-height: 1.25;
+        color: #8B8B8B;
     }
-
+    .footer__link {
+        font-size: 12px;
+        line-height: 1.25;
+    }
 }
