@@ -1,0 +1,29 @@
+.navigation__link {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.38;
+    /* identical to box height, or 138% */
+
+    text-align: right;
+
+    color: #FFFFFF;
+    text-decoration: none;
+
+    margin-right: 16px;
+}
+
+.navigation__link:last-of-type {
+    margin-right: 0;
+}
+
+.navigation__link:hover {
+    opacity: 0.8;
+    transition: 0.8s;
+}
+
+.navigation__link_selected {
+    font-weight: 500;
+    text-decoration: underline;
+}
