@@ -1,10 +1,16 @@
 import './Account.css';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function Account() {
   return (
   <nav className="account">
-    <Link className="account__link" to="/profile">Аккаунт</Link>
+    <NavLink
+      className="account__link"
+      activeClassName="account__link_selected"
+      to="/profile"
+    >
+      Аккаунт
+    </NavLink>
     <button className="account__icon"/>
   </nav>
   );

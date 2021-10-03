@@ -16,6 +16,10 @@
     text-decoration: none;
 }
 
+.account__link_selected {
+    text-decoration: underline;
+}
+
 .account__icon {
     height: 30px;
     width: 26px;
