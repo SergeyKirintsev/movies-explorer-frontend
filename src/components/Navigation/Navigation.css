@@ -1,3 +1,9 @@
+.navigation {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+
 .navigation__link {
     font-family: Inter, Arial, sans-serif;
     font-style: normal;
@@ -26,4 +32,9 @@
 .navigation__link_selected {
     font-weight: 500;
     text-decoration: underline;
+}
+
+.navigation__movies {
+    display: flex;
+    align-items: center;
 }
