@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Navigation from "../Navigation/Navigation";
 
-function Movies() {
+function SavedMovies() {
   return (
     <>
       <Header>
@@ -13,7 +13,7 @@ function Movies() {
 
       <main className="content">
         <SearchForm />
-        <MoviesCardList movies={new Array(10).fill(1)}/>
+        <MoviesCardList movies={new Array(4).fill(1)}/>
       </main>
 
       <Footer/>
@@ -21,4 +21,4 @@ function Movies() {
   );
 }
 
-export default Movies;
+export default SavedMovies;

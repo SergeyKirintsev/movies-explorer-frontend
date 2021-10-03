@@ -1,10 +1,10 @@
 import MoviesCard from '../MoviesCard/MoviesCard';
 import './MoviesCardList.css';
 
-function MoviesCardList() {
+function MoviesCardList({movies}) {
   return (
     <ul className="card-list">
-      {new Array(10).fill(1).map(() => <MoviesCard />)}
+      {movies.map(() => <MoviesCard />)}
     </ul>
   );
 }
