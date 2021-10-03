@@ -1,14 +1,11 @@
 import './Header.css';
-import logo from '../../images/logo.svg';
-import {Link} from "react-router-dom";
+import Logo from "../Logo/Logo";
 
 function Header({children, modification}) {
   return (
     <header className={`header ${modification ? modification : ''}`}>
       <div className="header__container">
-        <Link to="/">
-          <img src={logo} className="header_logo" alt="Логотип" />
-        </Link>
+        <Logo/>
         {children}
       </div>
     </header>
