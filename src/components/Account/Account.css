@@ -1,0 +1,30 @@
+.account {
+    display: flex;
+}
+
+.account__link {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+
+    margin-right: 17px;
+    text-decoration: none;
+}
+
+.account__icon {
+    height: 30px;
+    width: 26px;
+    border-radius: 4px;
+    border: none;
+
+    background-size: 14px 12px;
+    background: #313131 url(../../images/icon-account.svg) no-repeat center;
+}
