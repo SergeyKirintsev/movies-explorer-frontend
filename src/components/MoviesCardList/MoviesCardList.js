@@ -4,7 +4,7 @@ import './MoviesCardList.css';
 function MoviesCardList({movies}) {
   return (
     <ul className="card-list">
-      {movies.map(() => <MoviesCard />)}
+      {movies.map((_, i) => <MoviesCard key={i} />)}
     </ul>
   );
 }

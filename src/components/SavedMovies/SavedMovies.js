@@ -3,12 +3,14 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Navigation from "../Navigation/Navigation";
+import Burger from "../Burger/Burger";
 
-function SavedMovies() {
+function SavedMovies({menuState}) {
   return (
     <>
       <Header>
-        <Navigation/>
+        <Burger menuState={menuState}/>
+        <Navigation menuState={menuState}/>
       </Header>
 
       <main className="content">

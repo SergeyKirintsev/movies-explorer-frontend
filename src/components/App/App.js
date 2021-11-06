@@ -4,21 +4,24 @@ import Movies from "../Movies/Movies";
 import {Route, Switch} from "react-router-dom";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
+import {useState} from "react";
 
 function App() {
+  const menuState = useState(false);
+
   return (
     <>
       <Switch>
         <Route path='/' exact>
-          <Main />
+          <Main/>
         </Route>
 
         <Route path='/movies'>
-          <Movies />
+          <Movies menuState={menuState}/>
         </Route>
 
         <Route path='/saved-movies'>
-          <SavedMovies />
+          <SavedMovies menuState={menuState}/>
         </Route>
 
         <Route path='/profile'>
