@@ -1,10 +1,12 @@
+import {useState} from "react";
+import {Route, Switch} from "react-router-dom";
 import './App.css';
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
-import {Route, Switch} from "react-router-dom";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
-import {useState} from "react";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
 
 function App() {
   const menuState = useState(false);
@@ -26,6 +28,14 @@ function App() {
 
         <Route path='/profile'>
           <Profile menuState={menuState} />
+        </Route>
+
+        <Route path='/sign-up'>
+          <Register />
+        </Route>
+
+        <Route path="/sign-in">
+          <Login />
         </Route>
       </Switch>
     </>

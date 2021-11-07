@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 function Logo() {
   return (
     <Link to="/">
-      <img src={logo} className="logo" alt="Логотип"/>
+      <img src={logo} className="logo btn-hover" alt="Логотип"/>
     </Link>
   );
 }

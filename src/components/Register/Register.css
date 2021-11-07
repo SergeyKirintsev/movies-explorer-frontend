@@ -1,0 +1,26 @@
+.register {
+  padding: 70px 30px;
+  height: 100%;
+}
+
+.register__container {
+  box-sizing: border-box;
+  max-width: 396px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1000px) {
+  .register__container {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .register__header {
+    text-align: center;
+  }
+}

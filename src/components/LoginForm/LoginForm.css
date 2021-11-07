@@ -1,0 +1,125 @@
+.login-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-form__title {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #FFFFFF;
+}
+
+.login-form__label {
+  display: block;
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #8B8B8B;
+  margin-bottom: 5px;
+}
+
+.login-form__input {
+  padding: 0 0 10px;
+  margin-bottom: 24px;
+  width: 100%;
+  background: transparent;
+
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #424242;
+
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.login-form__input:focus {
+  border-bottom: 1px solid #4285F4;
+}
+
+.login-form__submit {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 15px 0 15px;
+  margin-bottom: 16px;
+  background: #4285F4;
+  border-radius: 3px;
+  border: none;
+
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #FFFFFF;
+}
+
+.login-form__span {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #8B8B8B;
+  margin-right: 6px;
+}
+
+.login-form__link {
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #4285F4;
+}
+
+.login-form__info {
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .login-form {
+    height: min-content;
+  }
+  .login-form__submit {
+    margin-top: 70px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .login-form {
+    height: 100%;
+  }
+  .login-form__title {
+    text-align: center;
+  }
+  .login-form__submit, .login-form__span, .login-form__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
