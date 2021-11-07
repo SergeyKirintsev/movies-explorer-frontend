@@ -87,6 +87,11 @@
     /*margin-bottom: auto;*/
 }
 
+.profile__buttons {
+    display: flex;
+    flex-direction: column;
+}
+
 .profile__btn {
     background-color: transparent;
     border: none;
@@ -101,13 +106,10 @@
 
 .profile__btn_edit {
     color: #FFFFFF;
-    /*margin-top: auto;*/
+    margin-top: auto;
 }
 
 .profile__btn_exit {
     color: #EE3465;
 }
 
-.test {
-    /*margin-top: auto;*/
-}

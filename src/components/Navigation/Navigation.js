@@ -40,7 +40,7 @@ function Navigation({menuState}) {
           Сохранённые фильмы
         </NavLink>
       </div>
-      <Account/>
+      <Account onClick={() => setIsShowMenu(state => !state)}/>
     </nav>
   );
 }
