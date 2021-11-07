@@ -1,0 +1,25 @@
+.content {
+  text-align: center;
+}
+
+.movies__more-btn {
+  margin: 50px 0 80px;
+  width: 320px;
+  height: 36px;
+  background-color: #2F2F2F;
+  border: none;
+
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 700px) {
+  .movies__more-btn {
+    width: 240px;
+  }
+}

@@ -75,3 +75,21 @@
     line-height: 1.29;
     color: #FFFFFF;
 }
+
+@media screen and (max-width: 1000px) {
+    .search-form__container {
+        padding: 70px 30px 49px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .search-form__container {
+        padding: 70px 14px 49px;
+    }
+    .search-form__img {
+        display: none;
+    }
+    .search-form__input {
+        text-align: left;
+    }
+}

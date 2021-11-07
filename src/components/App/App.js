@@ -25,7 +25,7 @@ function App() {
         </Route>
 
         <Route path='/profile'>
-          <Profile />
+          <Profile menuState={menuState} />
         </Route>
       </Switch>
     </>

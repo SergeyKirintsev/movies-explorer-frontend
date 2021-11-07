@@ -1,3 +1,4 @@
+import './Movies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -16,6 +17,7 @@ function Movies({menuState}) {
       <main className="content">
         <SearchForm />
         <MoviesCardList movies={new Array(10).fill(1)}/>
+        <button className='movies__more-btn'>Ещё</button>
       </main>
 
       <Footer/>

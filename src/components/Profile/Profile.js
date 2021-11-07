@@ -2,11 +2,11 @@ import './Profile.css';
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
 
-function Profile() {
+function Profile({menuState}) {
   return (
     <>
       <Header>
-        <Navigation/>
+        <Navigation menuState={menuState} />
       </Header>
 
       <main className="content">
@@ -24,7 +24,7 @@ function Profile() {
             <section className="profile__form-section">
               <div className="profile__form-field profile__form-field_no-border">
                 <label className="profile__form-label" htmlFor="email">E-mail</label>
-                <input className="profile__form-input" id="email" type="email" placeholder="E-mail" value={'pochta@yandex.ru'}/>
+                <input className="profile__form-input" id="email" type="email" placeholder="E-mail" value={''}/>
               </div>
               <span className="profile__form-span">Сообщение об ошибке</span>
             </section>

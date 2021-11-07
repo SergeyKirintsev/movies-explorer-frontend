@@ -7,8 +7,25 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
-  grid-auto-rows: 230px;
+  /*grid-auto-rows: 230px;*/
   gap: 38px 20px;
 
   justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .card-list {
+    padding: 70px 30px;
+    grid-template-columns: repeat(auto-fit, 339px);
+    /*grid-auto-rows: 269px;*/
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .card-list {
+    padding: 70px 10px;
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 34px;
+  }
 }

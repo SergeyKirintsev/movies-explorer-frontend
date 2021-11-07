@@ -1,6 +1,6 @@
 .navigation {
     display: flex;
-    width: 60%;
+    width: max(60%, 320px);
     justify-content: space-between;
 }
 
@@ -90,6 +90,12 @@
         font-size: 18px;
         line-height: 22px;
         margin-bottom: 28px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navigation {
+        padding: 144px 0 48px;
     }
 }
 
