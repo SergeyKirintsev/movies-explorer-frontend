@@ -1,12 +1,14 @@
 import './Profile.css';
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
+import Burger from "../Burger/Burger";
 
 function Profile({menuState}) {
   return (
     <>
       <Header>
-        <Navigation menuState={menuState} />
+        <Burger menuState={menuState}/>
+        <Navigation menuState={menuState}/>
       </Header>
 
       <main className="content">
@@ -28,9 +30,12 @@ function Profile({menuState}) {
               </div>
               <span className="profile__form-span">Сообщение об ошибке</span>
             </section>
-            <button>Редактировать</button>
-            <button>Выйти из аккаунта</button>
           </form>
+
+          <div className='test'>
+            <button className='profile__btn profile__btn_edit'>Редактировать</button>
+            <button className='profile__btn profile__btn_exit'>Выйти из аккаунта</button>
+          </div>
 
         </section>
       </main>
