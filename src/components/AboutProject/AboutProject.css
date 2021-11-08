@@ -7,9 +7,9 @@
     margin: 0 auto;
     max-width: 1280px;
     min-width: 320px;
-    min-height: 608px;
+    /*min-height: 608px;*/
 
-    padding: 110px 70px 0;
+    padding: 110px 70px 100px;
 }
 
 .project__title {
@@ -17,7 +17,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 22px;
-    line-height: 27px;
+    line-height: 1.23;
     /* identical to box height */
 
     letter-spacing: -0.04em;
@@ -44,7 +44,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 1.2;
     letter-spacing: -0.04em;
 
     color: #FFFFFF;
@@ -56,7 +56,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 1.43;
     /* or 143% */
 
 
@@ -76,7 +76,7 @@
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 1.21;
     /* identical to box height, or 121% */
 
     text-align: center;
@@ -91,7 +91,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 1.21;
     text-align: center;
 
     color: #000000;
@@ -104,9 +104,63 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 1.21;
     text-align: center;
 
     color: #FFFFFF;
     padding: 9px;
+}
+
+@media screen and (max-width: 1000px) {
+    .project__container {
+        padding: 90px 50px 76px;
+    }
+    .project__info {
+        gap: 30px;
+        margin-bottom: 89px;
+    }
+    .project__info-title {
+        margin: 0 0 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .project__container {
+        padding: 70px 18px;
+    }
+    .project__title {
+        font-size: 18px;
+        line-height: 1.22;
+        margin: 0 0 60px;
+        padding-bottom: 28px;
+    }
+    .project__info {
+        display: block;
+        margin-bottom: 60px;
+    }
+    .project__info-title {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0 0 16px;
+    }
+    .project__info-about {
+        font-size: 11px;
+        line-height: 1.45;
+    }
+    .project__info-column {
+        margin-bottom: 56px;
+    }
+    .project__info-column:last-of-type {
+        margin-bottom: 0;
+    }
+    .project__part {
+        font-size: 11px;
+        line-height: 1.18;
+        padding: 11px;
+    }
+    .project__time {
+        grid-template-columns: 100px 1fr;
+        /*align-items: center;*/
+        /*justify-items: center;*/
+    }
 }

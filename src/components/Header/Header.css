@@ -1,4 +1,8 @@
 .header {
+  background: #202020;
+}
+
+.header_landing {
   background: #073042;
 }
 
@@ -14,4 +18,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .header__container {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header__container {
+    padding: 0 14px;
+  }
 }

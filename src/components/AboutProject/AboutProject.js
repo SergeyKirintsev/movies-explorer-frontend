@@ -4,7 +4,7 @@ function AboutProject() {
   return (
     <section className="project">
       <div className="project__container">
-        <h2 className="project__title">О проекте</h2>
+        <h2 id="О_проекте" className="project__title">О проекте</h2>
         <div className="project__info">
           <div className="project__info-column">
             <h3 className="project__info-title">Дипломный проект включал 5&nbsp;этапов</h3>

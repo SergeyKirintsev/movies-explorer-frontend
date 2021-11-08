@@ -1,0 +1,107 @@
+.footer {
+    background: #202020;
+}
+
+.footer__container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 320px;
+
+    padding: 42px 70px 20px;
+}
+
+.footer__title {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 1.23;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #8B8B8B;
+
+    margin: 0 auto 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #424242;
+}
+
+.footer__wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__copyright {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 1.23;
+    /* identical to box height */
+
+
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.footer__link-list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+.footer__link {
+    text-decoration: none;
+
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 1.23;
+    /* identical to box height */
+
+    text-align: right;
+
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 1000px) {
+    .footer__container {
+        padding: 42px 30px 20px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .footer__container {
+        padding: 40px 10px 10px;
+    }
+    .footer__title {
+        font-size: 12px;
+        line-height: 1.25;
+        margin-bottom: 30px;
+    }
+    .footer__link-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    .footer__wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer__copyright {
+        order: 2;
+        font-size: 12px;
+        line-height: 1.25;
+        color: #8B8B8B;
+    }
+    .footer__link {
+        font-size: 12px;
+        line-height: 1.25;
+    }
+}

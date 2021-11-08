@@ -10,11 +10,11 @@
 
 .nav-tab__link {
     padding: 8px 0;
-    font-family: Inter;
+    font-family: Inter, Arial, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
-    line-height: 16px;
+    line-height: 1.23;
 
     text-decoration-line: underline;
 
@@ -25,4 +25,15 @@
 
 .nav-tab__link:last-of-type {
     margin: 0;
+}
+
+@media screen and (max-width: 700px) {
+    .nav-tab {
+        min-height: 66px;
+    }
+    .nav-tab__link {
+        font-size: 11px;
+        line-height: 1.45;
+        margin-right: 24px;
+    }
 }

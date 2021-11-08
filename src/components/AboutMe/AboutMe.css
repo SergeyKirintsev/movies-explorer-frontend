@@ -1,0 +1,191 @@
+.about {
+    background: #202020;
+}
+
+.about__container {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1280px;
+    min-width: 320px;
+
+    padding: 110px 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about__title {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 1.23;
+    /* identical to box height */
+
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+
+    border-bottom: 1px solid #DADADA;
+    margin: 0 0 66px;
+    padding-bottom: 23px;
+}
+
+.about__wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about__column_person {
+    max-width: 600px;
+}
+
+.about__avatar {
+    max-width: 270px;
+    max-height: 327px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about__name {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 1.16;
+    /* identical to box height, or 116% */
+
+    letter-spacing: -0.04em;
+
+    color: #FFFFFF;
+
+    margin: 0 0 18px;
+}
+
+.about__info {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.11;
+    /* identical to box height, or 111% */
+
+
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    margin: 0 0 26px;
+}
+
+.about__description {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.57;
+    /* or 157% */
+
+
+    color: #FFFFFF;
+
+    mix-blend-mode: normal;
+    margin: 0 0 100px;
+}
+
+.about__social {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.about__social-link {
+    font-family: Inter, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.21;
+    /* identical to box height */
+    color: #FFFFFF;
+
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .about__container {
+        padding: 90px 50px;
+    }
+    .about__name {
+        font-size: 40px;
+        line-height: 1;
+        margin: 0 0 16px;
+    }
+    .about__info {
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0 0 20px;
+    }
+    .about__description {
+        font-size: 12px;
+        line-height: 1.5;
+        margin: 0 0 87px;
+    }
+    .about__column_person {
+        max-width: 364px;
+    }
+    .about__avatar {
+        max-width: 255px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .about__container {
+        padding: 70px 14px;
+    }
+    .about__title {
+        font-size: 18px;
+        line-height: 1.22;
+        padding-bottom: 28px;
+        margin-bottom: 60px;
+    }
+    .about__column_person {
+        order: 2;
+    }
+    .about__column_avatar {
+        order: 1;
+        width: 292px;
+        margin-bottom: 40px;
+    }
+    .about__wrap {
+        align-items: center;
+        flex-direction: column;
+    }
+    .about__avatar {
+        max-width: 292px;
+        max-height: 352px;
+        height: 352px;
+    }
+    .about__name {
+        font-size: 30px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+    .about__info {
+        font-size: 11px;
+        line-height: 1.45;
+        margin-bottom: 20px;
+    }
+    .about__description {
+        font-weight: normal;
+        font-size: 11px;
+        line-height: 1.45;
+        margin-bottom: 40px;
+    }
+    .about__social-link {
+        font-size: 14px;
+        line-height: 1.21;
+    }
+}

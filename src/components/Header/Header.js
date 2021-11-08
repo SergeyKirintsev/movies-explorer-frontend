@@ -1,13 +1,12 @@
 import './Header.css';
-import logo from '../../images/logo.svg';
-import ButtonsPanel from '../ButtonsPanel/ButtonsPanel';
+import Logo from "../Logo/Logo";
 
-function Header() {
+function Header({children, modification}) {
   return (
-    <header className="header">
+    <header className={`header ${modification ? modification : ''}`}>
       <div className="header__container">
-        <img src={logo} className="header_logo" alt="Логотип" />
-        <ButtonsPanel />
+        <Logo/>
+        {children}
       </div>
     </header>
   );
