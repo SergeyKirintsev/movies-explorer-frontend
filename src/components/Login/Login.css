@@ -13,6 +13,13 @@
   flex-direction: column;
 }
 
+.login-form__input-error {
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #EE3465;
+}
+
 @media screen and (max-width: 1000px) {
   .login__container {
     justify-content: center;

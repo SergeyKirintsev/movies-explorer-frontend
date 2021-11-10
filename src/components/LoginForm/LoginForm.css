@@ -71,6 +71,12 @@
   color: #FFFFFF;
 }
 
+.login-form__submit_disabled {
+  background: #F8F8F8;
+  color: #C2C2C2;
+  pointer-events: none;
+}
+
 .login-form__span {
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
