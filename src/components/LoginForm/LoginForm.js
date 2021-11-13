@@ -1,10 +1,15 @@
 import {Link} from "react-router-dom";
 import './LoginForm.css';
 
-function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid}) {
+function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid, onSubmit, formValues}) {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(formValues);
+  };
 
   return (
-      <form className="login-form" name="loginForm" noValidate>
+      <form className="login-form" name="loginForm" noValidate onSubmit={handleSubmit}>
         <div className='login-form__inputs'>
           <h2 className="login-form__title">{title}</h2>
           {children}

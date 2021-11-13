@@ -22,6 +22,7 @@ function Register({ onRegister }) {
           linkTo='/sign-in'
           linkInfo='Уже зарегистрированы?'
           isValid={isValid}
+          formValues={values}
         >
           <section className="login-form__section">
             <label className='login-form__label'>Имя</label>

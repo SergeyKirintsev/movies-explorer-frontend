@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, useHistory} from "react-router-dom";
 import './App.css';
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
@@ -8,10 +8,17 @@ import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import mainApi from "../../utils/MainApi";
+import Modal from "../Modal/Modal";
 
 function App() {
+  const history = useHistory();
+
   const menuState = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [modalConfig, setModalConfig] = useState({})
 
   useEffect(() => {
     setCurrentUser({
@@ -19,6 +26,29 @@ function App() {
       email: "kserg80@gmail.com"
     })
   }, [])
+
+  function handleRegister(formData) {
+    mainApi
+      .signUp(formData)
+      .then(({data}) => {
+        if (data) {
+          history.push('/sign-in');
+          showModal('Вы зарегистрированы!')
+        }
+      })
+      .catch(({message}) => {
+        showModal(message, 'error')
+      })
+  }
+
+  function closeModal() {
+    setIsOpenModal(false);
+  }
+
+  async function showModal(message, type = 'ok') {
+    await setModalConfig(() => ({message, type}));
+    await setIsOpenModal(true);
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -41,13 +71,19 @@ function App() {
           </Route>
 
           <Route path='/sign-up'>
-            <Register />
+            <Register onRegister={handleRegister} />
           </Route>
 
           <Route path="/sign-in">
             <Login />
           </Route>
         </Switch>
+
+        <Modal
+          onClose={closeModal}
+          isOpened={isOpenModal}
+          modalConfig={modalConfig}
+        />
       </>
     </CurrentUserContext.Provider>
   );

@@ -1,0 +1,62 @@
+.modal__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 36px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__body {
+  min-width: 300px;
+  /*min-height: 100px;*/
+  /*outline: 2px solid red;*/
+  border-radius: 10px;
+
+  background-color: rgba(28, 250, 7, 1);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  text-align: center;
+  z-index: 1;
+}
+
+.modal__body_good {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /*background-color: rgba(0, 0, 0, 0.1);*/
+  cursor: pointer;
+}
+
+.modal__message {
+  margin: 0;
+  padding: 16px;
+
+  font-size: 14px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}

@@ -5,21 +5,22 @@ class MainApi {
     this.baseUrl = baseUrl;
   }
 
-  _checkResponse(res) {
+  async _checkResponse(res) {
+    const json = await res.json()
     if (res.ok) {
-      return res.json();
+      return json;
     }
-    return Promise.reject(`Ошибка ${res.status}`);
+    return Promise.reject(json);
   }
 
-  signUp({ email, password }) {
+  signUp({ name, email, password }) {
     return fetch(`${this.baseUrl}/signup`, {
       method: 'POST',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ password, email }),
+      body: JSON.stringify({ name, password, email }),
     }).then(this._checkResponse);
   }
 
