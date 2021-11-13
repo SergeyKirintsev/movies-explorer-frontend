@@ -4,7 +4,7 @@ import './LoginForm.css';
 function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid}) {
 
   return (
-      <form className="login-form" name="loginForm">
+      <form className="login-form" name="loginForm" noValidate>
         <div className='login-form__inputs'>
           <h2 className="login-form__title">{title}</h2>
           {children}

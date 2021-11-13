@@ -2,9 +2,10 @@ import './Login.css'
 import LoginForm from "../LoginForm/LoginForm";
 import Logo from "../Logo/Logo";
 import {useFormWithValidation} from "../../utils/form-validation";
+import {validationConfig} from "../../utils/constants";
 
 function Login({ onLogin }) {
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation()
+  const { values, errors, handleChange, isValid } = useFormWithValidation();
 
   return (
     <section className='login'>
@@ -45,8 +46,8 @@ function Login({ onLogin }) {
               className="login-form__input"
               placeholder="Пароль"
               required
-              minLength="5"
               aria-label="Поле для ввода пароля"
+              minLength={validationConfig.passwordMinLength}
             />
             <span className="login-form__input-error">{errors.password}</span>
           </section>
