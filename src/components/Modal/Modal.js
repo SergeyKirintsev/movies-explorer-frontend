@@ -8,20 +8,18 @@ const Modal = ({modalConfig, onClose, isOpened}) => {
 
   let styleAlert = {}
 
-  switch (type) {
-    case 'ok':
-      styleAlert = {
-        color: '#155724',
-        backgroundColor: '#d4edda',
-        borderColor: '#c3e6cb',
-      }
-      break;
-    case 'error':
-      styleAlert = {
-        color: '#721c24',
-        backgroundColor: '#f8d7da',
-        borderColor: '#f5c6cb',
-      }
+  if (type === 'error') {
+    styleAlert = {
+      color: '#721c24',
+      backgroundColor: '#f8d7da',
+      borderColor: '#f5c6cb',
+    }
+  } else {
+    styleAlert = {
+      color: '#155724',
+      backgroundColor: '#d4edda',
+      borderColor: '#c3e6cb',
+    }
   }
 
   useEffect(() => {
