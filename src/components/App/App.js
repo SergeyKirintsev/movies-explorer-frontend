@@ -32,7 +32,9 @@ function App() {
       .signUp(formData)
       .then(({data}) => {
         if (data) {
-          history.push('/sign-in');
+          setCurrentUser(data)
+          setLoggedIn(true);
+          history.push('/movies');
           showModal('Вы зарегистрированы!')
         }
       })
@@ -46,7 +48,7 @@ function App() {
   }
 
   async function showModal(message, type = 'ok') {
-    await setModalConfig(() => ({message, type}));
+    await setModalConfig({message, type});
     await setIsOpenModal(true);
   }
 
