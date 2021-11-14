@@ -21,10 +21,15 @@ function App() {
   const [modalConfig, setModalConfig] = useState({})
 
   useEffect(() => {
-    setCurrentUser({
-      name: "Sergey",
-      email: "kserg80@gmail.com"
-    })
+    mainApi
+      .getUserInfo()
+      .then(({data}) => {
+        setCurrentUser(data);
+        setLoggedIn(true);
+      })
+      .catch(({message}) => {
+        console.log('Ошибка при получении данных пользователя', message);
+      })
   }, [])
 
   function handleUpdateProfile(formData) {
@@ -99,7 +104,10 @@ function App() {
       <>
         <Switch>
           <Route path='/' exact>
-            <Main/>
+            <Main
+              loggedIn={loggedIn}
+              menuState={menuState}
+            />
           </Route>
 
           <Route path='/movies'>

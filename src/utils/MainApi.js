@@ -52,6 +52,13 @@ class MainApi {
       body: JSON.stringify({ name, email }),
     }).then(this._checkResponse);
   }
+
+  getUserInfo() {
+    return fetch(`${this.baseUrl}/users/me`, {
+      method: 'GET',
+      credentials: 'include',
+    }).then(this._checkResponse);
+  }
 }
 
 const mainApi = new MainApi(MAIN_API_URL);

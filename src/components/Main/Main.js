@@ -8,14 +8,22 @@ import Portfolio from "../Portfolio/Portfolio";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import ButtonsPanel from "../ButtonsPanel/ButtonsPanel";
+import Burger from "../Burger/Burger";
+import Navigation from "../Navigation/Navigation";
 
-function Main() {
+function Main({ loggedIn, menuState }) {
   return (
     <>
       <Header
         modification="header_landing"
       >
-        <ButtonsPanel/>
+        {!loggedIn
+          ? <ButtonsPanel/>
+          : <>
+              <Burger menuState={menuState}/>
+              <Navigation menuState={menuState}/>
+            </>
+        }
       </Header>
 
       <main className="content">
