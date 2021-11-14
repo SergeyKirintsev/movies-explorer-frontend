@@ -43,6 +43,21 @@ function App() {
       })
   }
 
+  function handleLogin(formData) {
+    mainApi
+      .signIn(formData)
+      .then(({ data }) => {
+        if (data) {
+          setCurrentUser(data)
+          setLoggedIn(true);
+          history.push('/movies');
+        }
+      })
+      .catch(({message}) => {
+        showModal(message, 'error')
+      })
+  }
+
   function closeModal() {
     setIsOpenModal(false);
   }
@@ -77,7 +92,7 @@ function App() {
           </Route>
 
           <Route path="/sign-in">
-            <Login />
+            <Login onLogin={handleLogin}/>
           </Route>
         </Switch>
 

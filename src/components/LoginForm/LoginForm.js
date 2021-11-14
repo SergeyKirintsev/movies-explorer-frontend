@@ -1,11 +1,11 @@
 import {Link} from "react-router-dom";
 import './LoginForm.css';
 
-function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid, onSubmit, formValues}) {
+function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid, onSubmit}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formValues);
+    onSubmit();
   };
 
   return (

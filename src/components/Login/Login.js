@@ -16,7 +16,7 @@ function Login({ onLogin }) {
         <LoginForm
           title="Рады видеть!"
           submitBtnText="Войти"
-          onSubmit={onLogin}
+          onSubmit={() => onLogin(values)}
           linkText='Регистрация'
           linkTo='/sign-up'
           linkInfo='Ещё не зарегистрированы?'

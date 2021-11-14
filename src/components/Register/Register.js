@@ -17,12 +17,12 @@ function Register({ onRegister }) {
         <LoginForm
           title="Добро пожаловать!"
           submitBtnText="Зарегистрироваться"
-          onSubmit={onRegister}
+          onSubmit={() => onRegister(values)}
           linkText='Войти'
           linkTo='/sign-in'
           linkInfo='Уже зарегистрированы?'
           isValid={isValid}
-          formValues={values}
+          // formValues={values}
         >
           <section className="login-form__section">
             <label className='login-form__label'>Имя</label>
