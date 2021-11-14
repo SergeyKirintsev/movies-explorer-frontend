@@ -36,8 +36,20 @@ class MainApi {
   }
 
   signOut() {
-    return fetch(`${this.baseUrl}/users/signout`, {
+    return fetch(`${this.baseUrl}/signout`, {
+      method: 'POST',
       credentials: 'include',
+    }).then(this._checkResponse);
+  }
+
+  setUserInfo({ name, email }) {
+    return fetch(`${this.baseUrl}/users/me`, {
+      method: 'PATCH',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email }),
     }).then(this._checkResponse);
   }
 }

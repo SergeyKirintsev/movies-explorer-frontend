@@ -27,6 +27,33 @@ function App() {
     })
   }, [])
 
+  function handleUpdateProfile(formData) {
+    mainApi
+      .setUserInfo(formData)
+      .then((data) => {
+        showModal('Данные профиля обновлены');
+        setCurrentUser(data);
+      })
+      .catch(({message}) => {
+        showModal(message, 'error')
+      })
+  }
+
+  function handleSignOut() {
+    mainApi
+      .signOut()
+      .then(() => {
+        setLoggedIn(false);
+        setCurrentUser({});
+
+        // TODO возможно придётся убрать
+        history.push('/');
+      })
+      .catch(({message}) => {
+        showModal(message, 'error')
+      })
+  }
+
   function handleRegister(formData) {
     mainApi
       .signUp(formData)
@@ -84,7 +111,11 @@ function App() {
           </Route>
 
           <Route path='/profile'>
-            <Profile menuState={menuState} />
+            <Profile
+              menuState={menuState}
+              onSignOut={handleSignOut}
+              updateProfile={handleUpdateProfile}
+            />
           </Route>
 
           <Route path='/sign-up'>
