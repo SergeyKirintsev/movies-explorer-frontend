@@ -4,7 +4,7 @@ import {NavLink, useLocation} from "react-router-dom";
 function Account({onClick}) {
   const {pathname} = useLocation();
 
-  const isMainPage = () => pathname === '/'
+  const isMainPage = pathname === '/'
 
   return (
     <nav className="account">
@@ -16,7 +16,7 @@ function Account({onClick}) {
       >
         Аккаунт
       </NavLink>
-      <button className={`account__icon ${isMainPage() ? 'account__icon_main' : ''}`}/>
+      <button className={`account__icon ${isMainPage ? 'account__icon_main' : ''}`}/>
     </nav>
   );
 }
