@@ -10,6 +10,7 @@ import Login from "../Login/Login";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import mainApi from "../../utils/MainApi";
 import Modal from "../Modal/Modal";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const history = useHistory();
@@ -110,21 +111,43 @@ function App() {
             />
           </Route>
 
-          <Route path='/movies'>
-            <Movies menuState={menuState}/>
-          </Route>
+          <ProtectedRoute
+            path='/movies'
+            loggedIn={loggedIn}
+            menuState={menuState}
+            component={Movies}
+          />
+          {/*<Route path='/movies'>*/}
+          {/*  <Movies menuState={menuState}/>*/}
+          {/*</Route>*/}
 
-          <Route path='/saved-movies'>
-            <SavedMovies menuState={menuState}/>
-          </Route>
+          <ProtectedRoute
+            path='/saved-movies'
+            loggedIn={loggedIn}
+            menuState={menuState}
+            component={SavedMovies}
+          />
 
-          <Route path='/profile'>
-            <Profile
-              menuState={menuState}
-              onSignOut={handleSignOut}
-              updateProfile={handleUpdateProfile}
-            />
-          </Route>
+          {/*<Route path='/saved-movies'>*/}
+          {/*  <SavedMovies menuState={menuState}/>*/}
+          {/*</Route>*/}
+
+          <ProtectedRoute
+            path='/profile'
+            loggedIn={loggedIn}
+            menuState={menuState}
+            onSignOut={handleSignOut}
+            updateProfile={handleUpdateProfile}
+            component={Profile}
+          />
+
+          {/*<Route path='/profile'>*/}
+          {/*  <Profile*/}
+          {/*    menuState={menuState}*/}
+          {/*    onSignOut={handleSignOut}*/}
+          {/*    updateProfile={handleUpdateProfile}*/}
+          {/*  />*/}
+          {/*</Route>*/}
 
           <Route path='/sign-up'>
             <Register onRegister={handleRegister} />
