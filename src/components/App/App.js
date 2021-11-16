@@ -19,7 +19,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [modalConfig, setModalConfig] = useState({})
+  const [modalConfig, setModalConfig] = useState({});
+  const [cardsInRow, setCardsInRow] = useState(1);
 
   useEffect(() => {
     mainApi
@@ -32,6 +33,35 @@ function App() {
         console.log('Ошибка при получении данных пользователя', message);
       })
   }, [])
+
+  useEffect(() => {
+    calcCardsInRow();
+    window.addEventListener("resize", calcCardsInRow);
+    return () => {
+      window.removeEventListener("resize", calcCardsInRow)
+    }
+  }, [])
+
+  function calcCardsInRow() {
+    let countCards;
+    const width = document.documentElement.clientWidth;
+
+    switch (true) {
+      case (width > 1279):
+        countCards =  4;
+        break;
+      case (width > 990):
+        countCards =  3;
+        break;
+      case (width > 767):
+        countCards =  2;
+        break;
+      default:
+        countCards =  1;
+    }
+
+    setCardsInRow(countCards);
+  }
 
   function handleUpdateProfile(formData) {
     mainApi
@@ -117,9 +147,6 @@ function App() {
             menuState={menuState}
             component={Movies}
           />
-          {/*<Route path='/movies'>*/}
-          {/*  <Movies menuState={menuState}/>*/}
-          {/*</Route>*/}
 
           <ProtectedRoute
             path='/saved-movies'
@@ -127,10 +154,6 @@ function App() {
             menuState={menuState}
             component={SavedMovies}
           />
-
-          {/*<Route path='/saved-movies'>*/}
-          {/*  <SavedMovies menuState={menuState}/>*/}
-          {/*</Route>*/}
 
           <ProtectedRoute
             path='/profile'
@@ -140,14 +163,6 @@ function App() {
             updateProfile={handleUpdateProfile}
             component={Profile}
           />
-
-          {/*<Route path='/profile'>*/}
-          {/*  <Profile*/}
-          {/*    menuState={menuState}*/}
-          {/*    onSignOut={handleSignOut}*/}
-          {/*    updateProfile={handleUpdateProfile}*/}
-          {/*  />*/}
-          {/*</Route>*/}
 
           <Route path='/sign-up'>
             <Register onRegister={handleRegister} />

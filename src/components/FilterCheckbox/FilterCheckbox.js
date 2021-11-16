@@ -1,9 +1,15 @@
 import './FilterCheckbox.css';
 
-function FilterCheckbox() {
+function FilterCheckbox({values, onChange}) {
   return (
     <label className="switcher">
-      <input className="switcher__input" type="checkbox" />
+      <input
+        name="shortFilm"
+        className="switcher__input"
+        type="checkbox"
+        checked={values.shortFilm}
+        onChange={onChange}
+      />
       <span className="switcher__span"/>
     </label>
   );

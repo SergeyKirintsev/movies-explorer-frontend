@@ -9,3 +9,5 @@ export const validationConfig = {
   passwordMinLength: 6,
   passwordMaxLength: 100,
 }
+
+export const LOCAL_STORAGE_KEY = 'practicum';
