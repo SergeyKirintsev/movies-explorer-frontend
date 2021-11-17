@@ -5,8 +5,9 @@ import Footer from "../Footer/Footer";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Navigation from "../Navigation/Navigation";
 import Burger from "../Burger/Burger";
+import Preloader from "../Preloader/Preloader";
 
-function Movies({menuState}) {
+function Movies({menuState, isFetching, findFilms, movies, moveFilterToShow, filteredMovies}) {
   return (
     <>
       <Header>
@@ -15,9 +16,23 @@ function Movies({menuState}) {
       </Header>
 
       <main className="content">
-        <SearchForm />
-        <MoviesCardList movies={new Array(10).fill(1)}/>
-        <button className='movies__more-btn'>Ещё</button>
+        <SearchForm findFilms={findFilms}/>
+
+        {isFetching && <Preloader />}
+
+        {movies.length > 0
+          ? <MoviesCardList movies={movies}/>
+          : <h2>Ничего не найдено!</h2>
+        }
+
+        {filteredMovies.length > 0 &&
+          <button
+            onClick={moveFilterToShow}
+            className='movies__more-btn'
+          >
+            Ещё
+          </button>
+        }
       </main>
 
       <Footer/>

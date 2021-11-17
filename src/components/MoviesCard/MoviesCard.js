@@ -1,6 +1,7 @@
 import "./MoviesCard.css";
 
-function MoviesCard() {
+function MoviesCard({movie}) {
+  const {nameRU, duration, trailerLink} = movie;
   return (
     <li className="card">
       <img
@@ -9,14 +10,14 @@ function MoviesCard() {
         alt="Картинка"
       />
       <div className="card__wrap">
-        <h2 className="card_title">33 слова о дизайне</h2>
+        <h2 className="card_title block">{nameRU}</h2>
         <button
           type="button"
           aria-label="Поставить отметку"
           className="card__like-btn"
         />
       </div>
-      <span className="card__duration">1ч42м</span>
+      <span className="card__duration">{duration}</span>
     </li>
   );
 }

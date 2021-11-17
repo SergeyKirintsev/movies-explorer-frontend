@@ -11,3 +11,8 @@ export const validationConfig = {
 }
 
 export const LOCAL_STORAGE_KEY = 'practicum';
+
+export const modal = {
+  type_ok: 'ok',
+  type_error: 'error',
+}

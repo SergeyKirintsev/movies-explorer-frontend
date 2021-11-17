@@ -60,6 +60,12 @@
   border-top: 1px solid #424242;
 }
 
+.block {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 1000px) {
   .card__img {
     height: 190px;

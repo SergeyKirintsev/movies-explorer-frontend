@@ -7,7 +7,7 @@ function FilterCheckbox({values, onChange}) {
         name="shortFilm"
         className="switcher__input"
         type="checkbox"
-        checked={values.shortFilm}
+        checked={values.shortFilm || false}
         onChange={onChange}
       />
       <span className="switcher__span"/>
