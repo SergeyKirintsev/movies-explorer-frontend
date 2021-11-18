@@ -35,6 +35,10 @@
   background-image: url(../../images/icon__no-liked.svg);
 }
 
+.card__like-btn_delete {
+  background-image: url(../../images/close.svg);
+}
+
 .card__wrap {
   display: flex;
   justify-content: space-between;

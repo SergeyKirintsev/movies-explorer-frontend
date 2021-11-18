@@ -3,9 +3,11 @@ import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import img from '../../images/find-icon.svg';
 import {useFormWithValidation} from "../../utils/form-validation";
 import {useEffect} from "react";
+import {useLocation} from "react-router-dom";
 
 function SearchForm({findFilms}) {
   const { values, handleChange, resetForm } = useFormWithValidation();
+  const {pathname} = useLocation();
 
   useEffect(() => {
     resetForm({
@@ -16,7 +18,7 @@ function SearchForm({findFilms}) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    findFilms(values);
+    findFilms(values, pathname);
   }
 
   return (

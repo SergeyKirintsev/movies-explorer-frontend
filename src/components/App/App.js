@@ -68,6 +68,7 @@ function App() {
     const filtered = allMovies.filter(movie =>
       (movie.nameRU.toLowerCase().includes(filter.name.toLowerCase()))
       && (filter.shortFilm ? isShortFilm(movie.duration) : true)
+      && (filter.saved ? isSaved(movie.id) : true)
     )
     const removed = filtered.splice(0, cardsInRow);
 
@@ -75,6 +76,18 @@ function App() {
     setToShowMovies(removed);
     setOnce(false);
   }, [filter])
+
+  function filterForSaved() {
+    setFilter({
+      name: '',
+      shortFilm: false,
+      saved: true
+    })
+  }
+
+  function isSaved(id) {
+    return savedMovies.map(el => el.movieId).includes(id)
+  }
 
   function createMovie(movie) {
     mainApi
@@ -91,6 +104,7 @@ function App() {
       .deleteMovie(_id)
       .then(({message}) => {
         setSavedMovies(state => state.filter(el => el._id !== _id))
+        setFilter(state => ({...state}))
       })
       .catch(err => {
         console.log(err)
@@ -112,7 +126,9 @@ function App() {
     return duration <= 40;
   }
 
-  function findFilms({name, shortFilm}) {
+  function findFilms({name, shortFilm}, pathname) {
+    const saved = pathname === '/saved-movies'
+
     name = name.trim();
     if (!name) {
       showModal('Нужно ввести ключевое слово', modal.type_error);
@@ -121,7 +137,7 @@ function App() {
 
     // поиск
     if (allMovies.length > 0) {
-      setFilter({name, shortFilm});
+      setFilter({name, shortFilm, saved});
     } else {
       setIsFetching(true);
       setIsFetchingError(false);
@@ -135,7 +151,7 @@ function App() {
         })
         .finally(() => {
           setIsFetching(false);
-          setFilter({name, shortFilm});
+          setFilter({name, shortFilm, saved});
         })
     }
   }
@@ -261,6 +277,12 @@ function App() {
             loggedIn={loggedIn}
             menuState={menuState}
             component={SavedMovies}
+            movies={toShowMovies}
+            createMovie={createMovie}
+            deleteMovie={deleteMovie}
+            savedMovies={savedMovies}
+            findFilms={findFilms}
+            filterForSaved={filterForSaved}
           />
 
           <ProtectedRoute
