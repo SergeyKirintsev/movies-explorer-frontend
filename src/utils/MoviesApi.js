@@ -14,7 +14,7 @@ class MoviesApi {
   }
 
   getMovies() {
-    return fetch(`${this.baseUrl}`)
+    return fetch(`${this.baseUrl}/beatfilm-movies`)
       .then(this._checkResponse);
   }
 }

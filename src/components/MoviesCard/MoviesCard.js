@@ -1,14 +1,18 @@
 import "./MoviesCard.css";
+import {MOVIES_API_URL} from "../../utils/constants";
+import {durationToHours} from "../../utils/utils";
 
 function MoviesCard({movie}) {
-  const {nameRU, duration, trailerLink} = movie;
+  const {nameRU, duration, trailerLink, image} = movie;
   return (
     <li className="card">
-      <img
-        className="card__img"
-        src="https://images.unsplash.com/photo-1575795325632-377ca781cf78?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1466&q=80"
-        alt="Картинка"
-      />
+      <a href={trailerLink} target="_blank">
+        <img
+          className="card__img"
+          src={`${MOVIES_API_URL}${image.url}`}
+          alt="Картинка"
+        />
+      </a>
       <div className="card__wrap">
         <h2 className="card_title block">{nameRU}</h2>
         <button
@@ -17,7 +21,7 @@ function MoviesCard({movie}) {
           className="card__like-btn"
         />
       </div>
-      <span className="card__duration">{duration}</span>
+      <span className="card__duration">{durationToHours(duration)}</span>
     </li>
   );
 }

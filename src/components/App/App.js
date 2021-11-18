@@ -30,6 +30,8 @@ function App() {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [modalConfig, setModalConfig] = useState({});
   const [isFetching, setIsFetching] = useState(false);
+  const [isFetchingError, setIsFetchingError] = useState(false);
+  const [once, setOnce] = useState(true);
 
   useEffect(() => {
     mainApi
@@ -65,20 +67,13 @@ function App() {
     setToShowMovies(removed);
   }, [filter])
 
-  useEffect(() => {
-    console.log('useEffect filteredMovies')
-    // moveFilterToShow();
-  }, [filteredMovies])
-
   async function moveFilterToShow() {
     const copyFilteredMovies = [...filteredMovies];
     const removed = copyFilteredMovies.splice(0, cardsInRow);
     await setToShowMovies((state) => {
-      console.log(1)
       return [...state].concat(removed)
     });
     await setFilteredMovies(() => {
-      console.log(2)
       return copyFilteredMovies
     });
   }
@@ -88,28 +83,25 @@ function App() {
   }
 
   function findFilms({name, shortFilm}) {
+    name = name.trim();
     if (!name) {
-      console.log('Нужно ввести ключевое слово');
       showModal('Нужно ввести ключевое слово', modal.type_error);
       return;
     }
 
     // поиск
+    setOnce(false);
     if (allMovies.length > 0) {
-      console.log('Поиск > 0 ...');
-      console.log(allMovies.length);
       setFilter({name, shortFilm});
     } else {
-      console.log('Поиск с загрузкой...');
-
       setIsFetching(true);
+      setIsFetchingError(false);
       moviesApi.getMovies()
         .then(data => {
-          console.log(data);
           setAllMovies(data);
         })
         .catch(err => {
-          console.log('Ошибка при загрузке фильмов', err);
+          setIsFetchingError(true);
         })
         .finally(() => {
           setIsFetching(false);
@@ -201,8 +193,8 @@ function App() {
     setIsOpenModal(false);
   }
 
-  function showModal(message, type = 'ok') {
-    setModalConfig({message, type});
+  async function showModal(message, type = 'ok') {
+    await setModalConfig({message, type});
     setIsOpenModal(true);
   }
 
@@ -227,6 +219,8 @@ function App() {
             movies={toShowMovies}
             moveFilterToShow={moveFilterToShow}
             filteredMovies={filteredMovies}
+            isFetchingError={isFetchingError}
+            once={once}
           />
 
           <ProtectedRoute
