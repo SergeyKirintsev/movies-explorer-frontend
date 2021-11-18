@@ -17,6 +17,9 @@ function Movies(
     filteredMovies,
     isFetchingError,
     once,
+    createMovie,
+    deleteMovie,
+    savedMovies,
   }) {
   return (
     <>
@@ -36,8 +39,14 @@ function Movies(
             <p>Подождите немного и попробуйте ещё раз</p>
           </>
           : movies.length > 0
-            ? <MoviesCardList movies={movies}/>
-            : once ? <Preloader/> : !isFetching && <h2>Ничего не найдено!</h2>
+            ? <MoviesCardList
+              movies={movies}
+              createMovie={createMovie}
+              deleteMovie={deleteMovie}
+              savedMovies={savedMovies}
+            />
+            : once ? '' : <h2 className='movies__error'>Ничего не найдено!</h2>
+            // : once ? <Preloader/> : !isFetching && <h2>Ничего не найдено!</h2>
         }
 
         {filteredMovies.length > 0 &&

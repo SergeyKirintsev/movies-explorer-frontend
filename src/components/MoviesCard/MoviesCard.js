@@ -2,8 +2,12 @@ import "./MoviesCard.css";
 import {MOVIES_API_URL} from "../../utils/constants";
 import {durationToHours} from "../../utils/utils";
 
-function MoviesCard({movie}) {
-  const {nameRU, duration, trailerLink, image} = movie;
+function isSaved(savedMovies, id) {
+  return savedMovies.map(el => el.movieId).includes(id)
+}
+
+function MoviesCard({movie, createMovie, savedMovies, deleteMovie}) {
+  const {nameRU, duration, trailerLink, image, id} = movie;
   return (
     <li className="card">
       <a href={trailerLink} target="_blank">
@@ -16,9 +20,10 @@ function MoviesCard({movie}) {
       <div className="card__wrap">
         <h2 className="card_title block">{nameRU}</h2>
         <button
+          onClick={!isSaved(savedMovies, id) ? () => createMovie(movie) : () => deleteMovie(movie)}
           type="button"
           aria-label="Поставить отметку"
-          className="card__like-btn"
+          className={`card__like-btn ${!isSaved(savedMovies, id) ? 'card__like-btn_no-like' : ''}`}
         />
       </div>
       <span className="card__duration">{durationToHours(duration)}</span>

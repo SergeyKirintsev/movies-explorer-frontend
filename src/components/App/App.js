@@ -18,6 +18,7 @@ import moviesApi from "../../utils/MoviesApi";
 function App() {
   const history = useHistory();
 
+  const [savedMovies, setSavedMovies] = useState([]);
   const [allMovies, setAllMovies] = useLocalStorage(LOCAL_STORAGE_KEY, []);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [toShowMovies, setToShowMovies] = useState([]);
@@ -46,6 +47,13 @@ function App() {
   }, [])
 
   useEffect(() => {
+    mainApi
+      .getSavedMovies()
+      .then(({data}) => setSavedMovies(data))
+      .catch(err => console.log(err))
+  }, [])
+
+  useEffect(() => {
     calcCardsInRow();
     window.addEventListener("resize", calcCardsInRow);
     return () => {
@@ -65,7 +73,29 @@ function App() {
 
     setFilteredMovies(filtered);
     setToShowMovies(removed);
+    setOnce(false);
   }, [filter])
+
+  function createMovie(movie) {
+    mainApi
+      .createMovie(movie, currentUser._id)
+      .then(data => {
+        setSavedMovies(state => [...state, data])
+      })
+      .catch(() => showModal('Ошибка при сохранении фильма', modal.type_error))
+  }
+
+  function deleteMovie({id}) {
+    const [{ _id }] = savedMovies.filter(el => el.movieId === id)
+    mainApi
+      .deleteMovie(_id)
+      .then(({message}) => {
+        setSavedMovies(state => state.filter(el => el._id !== _id))
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
   async function moveFilterToShow() {
     const copyFilteredMovies = [...filteredMovies];
@@ -90,7 +120,6 @@ function App() {
     }
 
     // поиск
-    setOnce(false);
     if (allMovies.length > 0) {
       setFilter({name, shortFilm});
     } else {
@@ -101,6 +130,7 @@ function App() {
           setAllMovies(data);
         })
         .catch(err => {
+          console.log(err);
           setIsFetchingError(true);
         })
         .finally(() => {
@@ -195,7 +225,7 @@ function App() {
 
   async function showModal(message, type = 'ok') {
     await setModalConfig({message, type});
-    setIsOpenModal(true);
+    await setIsOpenModal(true);
   }
 
   return (
@@ -221,6 +251,9 @@ function App() {
             filteredMovies={filteredMovies}
             isFetchingError={isFetchingError}
             once={once}
+            createMovie={createMovie}
+            deleteMovie={deleteMovie}
+            savedMovies={savedMovies}
           />
 
           <ProtectedRoute
