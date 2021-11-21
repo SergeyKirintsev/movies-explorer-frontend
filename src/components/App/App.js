@@ -14,6 +14,8 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {useLocalStorage} from "../../utils/local-storage";
 import {LOCAL_STORAGE_KEY, modal} from "../../utils/constants";
 import moviesApi from "../../utils/MoviesApi";
+import {calcCardsInRow} from "../../utils/utils";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 function App() {
   const history = useHistory();
@@ -58,10 +60,11 @@ function App() {
   }, [])
 
   useEffect(() => {
-    calcCardsInRow();
-    window.addEventListener("resize", calcCardsInRow);
+    const handlerResize = () => setCardsInRow(calcCardsInRow());
+
+    window.addEventListener("resize", handlerResize);
     return () => {
-      window.removeEventListener("resize", calcCardsInRow)
+      window.removeEventListener("resize", handlerResize)
     }
   }, [])
 
@@ -106,7 +109,7 @@ function App() {
     const [{ _id }] = savedMovies.filter(el => el.movieId === id)
     mainApi
       .deleteMovie(_id)
-      .then(({message}) => {
+      .then(() => {
         setSavedMovies(state => state.filter(el => el._id !== _id))
         setFilter(state => ({...state}))
       })
@@ -158,27 +161,6 @@ function App() {
           setFilter({name, shortFilm, saved});
         })
     }
-  }
-
-  function calcCardsInRow() {
-    let countCards;
-    const width = document.documentElement.clientWidth;
-
-    switch (true) {
-      case (width > 1279):
-        countCards = 4;
-        break;
-      case (width > 990):
-        countCards = 3;
-        break;
-      case (width > 767):
-        countCards = 2;
-        break;
-      default:
-        countCards = 1;
-    }
-
-    setCardsInRow(countCards);
   }
 
   function handleUpdateProfile(formData) {
@@ -307,6 +289,10 @@ function App() {
 
           <Route path="/sign-in">
             <Login onLogin={handleLogin}/>
+          </Route>
+
+          <Route>
+            <PageNotFound />
           </Route>
         </Switch>
 
