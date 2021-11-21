@@ -33,6 +33,7 @@ function App() {
   const [isFetching, setIsFetching] = useState(false);
   const [isFetchingError, setIsFetchingError] = useState(false);
   const [once, setOnce] = useState(true);
+  const [isCheckingToken, setIsCheckingToken] = useState(true)
 
   useEffect(() => {
     mainApi
@@ -43,6 +44,9 @@ function App() {
       })
       .catch(({message}) => {
         console.log('Ошибка при получении данных пользователя', message);
+      })
+      .finally(() => {
+        setIsCheckingToken(false);
       })
   }, [])
 
@@ -270,6 +274,7 @@ function App() {
             createMovie={createMovie}
             deleteMovie={deleteMovie}
             savedMovies={savedMovies}
+            isCheckingToken={isCheckingToken}
           />
 
           <ProtectedRoute
@@ -283,6 +288,7 @@ function App() {
             savedMovies={savedMovies}
             findFilms={findFilms}
             filterForSaved={filterForSaved}
+            isCheckingToken={isCheckingToken}
           />
 
           <ProtectedRoute
@@ -292,6 +298,7 @@ function App() {
             onSignOut={handleSignOut}
             updateProfile={handleUpdateProfile}
             component={Profile}
+            isCheckingToken={isCheckingToken}
           />
 
           <Route path='/sign-up'>
