@@ -6,6 +6,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Navigation from "../Navigation/Navigation";
 import Burger from "../Burger/Burger";
 import Preloader from "../Preloader/Preloader";
+import {useEffect} from "react";
 
 function Movies(
   {
@@ -20,7 +21,13 @@ function Movies(
     createMovie,
     deleteMovie,
     savedMovies,
+    filterForNoSaved,
   }) {
+
+  useEffect(() => {
+    filterForNoSaved();
+  }, [])
+
   return (
     <>
       <Header>

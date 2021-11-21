@@ -60,6 +60,7 @@ function App() {
   }, [])
 
   useEffect(() => {
+    setCardsInRow(calcCardsInRow());
     const handlerResize = () => setCardsInRow(calcCardsInRow());
 
     window.addEventListener("resize", handlerResize);
@@ -69,7 +70,9 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (filter === null) {
+    setToShowMovies([])
+
+    if (filter === null || (filter.name === '' && !filter.saved)) {
       return
     }
     const filtered = allMovies.filter(movie =>
@@ -89,6 +92,14 @@ function App() {
       name: '',
       shortFilm: false,
       saved: true
+    })
+  }
+
+  function filterForNoSaved() {
+    setFilter({
+      name: '',
+      shortFilm: false,
+      saved: false
     })
   }
 
@@ -129,9 +140,7 @@ function App() {
     });
   }
 
-  function findFilms({name, shortFilm}, pathname) {
-    const saved = pathname === '/saved-movies'
-
+  function findFilms({name, shortFilm}) {
     name = name.trim();
     if (!name) {
       showModal('Нужно ввести ключевое слово', modal.type_error);
@@ -140,7 +149,11 @@ function App() {
 
     // поиск
     if (allMovies.length > 0) {
-      setFilter({name, shortFilm, saved});
+      setFilter(state => ({
+        ...state,
+        name,
+        shortFilm
+      }));
     } else {
       setIsFetching(true);
       setIsFetchingError(false);
@@ -154,7 +167,11 @@ function App() {
         })
         .finally(() => {
           setIsFetching(false);
-          setFilter({name, shortFilm, saved});
+          setFilter(state => ({
+            ...state,
+            name,
+            shortFilm
+          }));
         })
     }
   }
@@ -253,6 +270,7 @@ function App() {
             deleteMovie={deleteMovie}
             savedMovies={savedMovies}
             isCheckingToken={isCheckingToken}
+            filterForNoSaved={filterForNoSaved}
           />
 
           <ProtectedRoute
