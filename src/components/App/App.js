@@ -14,7 +14,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {useLocalStorage} from "../../utils/local-storage";
 import {LOCAL_STORAGE_KEY, modal} from "../../utils/constants";
 import moviesApi from "../../utils/MoviesApi";
-import {calcCardsInRow} from "../../utils/utils";
+import {calcCardsInRow, isShortFilm} from "../../utils/utils";
 import PageNotFound from "../PageNotFound/PageNotFound";
 
 function App() {
@@ -127,10 +127,6 @@ function App() {
     await setFilteredMovies(() => {
       return copyFilteredMovies
     });
-  }
-
-  function isShortFilm(duration) {
-    return duration <= 40;
   }
 
   function findFilms({name, shortFilm}, pathname) {

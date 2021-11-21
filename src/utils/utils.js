@@ -1,4 +1,4 @@
-import {cardsInRowConfig} from "./constants";
+import {cardsInRowConfig, DURATION_SHORT_FILM} from "./constants";
 
 export function durationToHours(duration = 100) {
   const hours = Math.floor(duration / 60);
@@ -19,4 +19,8 @@ export function calcCardsInRow() {
     })
 
   return countCards;
+}
+
+export function isShortFilm(duration) {
+  return duration <= DURATION_SHORT_FILM;
 }

@@ -23,3 +23,5 @@ export const cardsInRowConfig = {
    '767': 2,
      '0': 1
 }
+
+export const DURATION_SHORT_FILM = 40;
