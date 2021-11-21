@@ -12,7 +12,7 @@ import mainApi from "../../utils/MainApi";
 import Modal from "../Modal/Modal";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import {useLocalStorage} from "../../utils/local-storage";
-import {LOCAL_STORAGE_KEY, modal} from "../../utils/constants";
+import {LOCAL_STORAGE_KEY_FILTER, LOCAL_STORAGE_KEY_MOVIES, modal} from "../../utils/constants";
 import moviesApi from "../../utils/MoviesApi";
 import {calcCardsInRow, isShortFilm} from "../../utils/utils";
 import PageNotFound from "../PageNotFound/PageNotFound";
@@ -21,11 +21,16 @@ function App() {
   const history = useHistory();
 
   const [savedMovies, setSavedMovies] = useState([]);
-  const [allMovies, setAllMovies] = useLocalStorage(LOCAL_STORAGE_KEY, []);
+  const [allMovies, setAllMovies] = useLocalStorage(LOCAL_STORAGE_KEY_MOVIES, []);
+  const [filterLocalStorage, setFilterLocalStorage] = useLocalStorage(LOCAL_STORAGE_KEY_FILTER, {});
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [toShowMovies, setToShowMovies] = useState([]);
   const [cardsInRow, setCardsInRow] = useState(1);
-  const [filter, setFilter] = useState(null);
+  const [filter, setFilter] = useState({
+    name: '',
+    shortFilm: false,
+    saved: false
+  });
 
   const menuState = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -43,6 +48,7 @@ function App() {
       .then(({data}) => {
         setCurrentUser(data);
         setLoggedIn(true);
+        setFilter(filterLocalStorage[data._id]);
       })
       .catch(({message}) => {
         console.log('Ошибка при получении данных пользователя', message);
@@ -72,9 +78,6 @@ function App() {
   useEffect(() => {
     setToShowMovies([])
 
-    if (filter === null || (filter.name === '' && !filter.saved)) {
-      return
-    }
     const filtered = allMovies.filter(movie =>
       (movie.nameRU.toLowerCase().includes(filter.name.toLowerCase()))
       && (filter.shortFilm ? isShortFilm(movie.duration) : true)
@@ -85,6 +88,13 @@ function App() {
     setFilteredMovies(filtered);
     setToShowMovies(removed);
     setOnce(false);
+
+    if (!filter?.saved) {
+      setFilterLocalStorage(state => ({
+        ...state,
+        [currentUser._id]: filter
+      }))
+    }
   }, [filter])
 
   function filterForSaved() {
@@ -97,7 +107,7 @@ function App() {
 
   function filterForNoSaved() {
     setFilter({
-      name: '',
+      name: filterLocalStorage[currentUser._id]?.name,
       shortFilm: false,
       saved: false
     })
@@ -189,6 +199,11 @@ function App() {
   }
 
   function handleSignOut() {
+    setFilterLocalStorage(state => {
+      delete state[currentUser._id]
+      return state;
+    })
+
     mainApi
       .signOut()
       .then(() => {
@@ -271,6 +286,7 @@ function App() {
             savedMovies={savedMovies}
             isCheckingToken={isCheckingToken}
             filterForNoSaved={filterForNoSaved}
+            searchString={filterLocalStorage[currentUser._id]?.name}
           />
 
           <ProtectedRoute

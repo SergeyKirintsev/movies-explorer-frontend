@@ -4,12 +4,12 @@ import img from '../../images/find-icon.svg';
 import {useFormWithValidation} from "../../utils/form-validation";
 import {useEffect} from "react";
 
-function SearchForm({findFilms}) {
+function SearchForm({findFilms, searchString}) {
   const { values, handleChange, resetForm } = useFormWithValidation();
 
   useEffect(() => {
     resetForm({
-      name: '',
+      name: searchString || '',
       shortFilm: false
     })
   }, [])
