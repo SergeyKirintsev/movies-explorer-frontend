@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
 import './LoginForm.css';
 
-function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid, onSubmit}) {
+function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid, onSubmit, isFetching}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +16,7 @@ function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, 
         </div>
         <div className='login-form__info'>
           <button
-            disabled={!isValid}
+            disabled={isFetching}
             type="submit"
             className={`login-form__submit btn-hover ${!isValid ? 'login-form__submit_disabled' : 'df'}`}
           >

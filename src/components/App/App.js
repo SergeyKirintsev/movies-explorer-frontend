@@ -38,6 +38,7 @@ function App() {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [modalConfig, setModalConfig] = useState({});
   const [isFetching, setIsFetching] = useState(false);
+  const [isFetchingFromForm, setIsFetchingFromForm] = useState(false);
   const [isFetchingError, setIsFetchingError] = useState(false);
   const [once, setOnce] = useState(true);
   const [isCheckingToken, setIsCheckingToken] = useState(true)
@@ -48,7 +49,7 @@ function App() {
       .then(({data}) => {
         setCurrentUser(data);
         setLoggedIn(true);
-        setFilter(filterLocalStorage[data._id]);
+        // setFilter(filterLocalStorage[data._id]);
       })
       .catch(({message}) => {
         console.log('Ошибка при получении данных пользователя', message);
@@ -76,6 +77,13 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if (allMovies.length === 0) {
+      return
+    }
+    if (filter.name === undefined) {
+      return
+    }
+
     setToShowMovies([])
 
     const filtered = allMovies.filter(movie =>
@@ -89,7 +97,7 @@ function App() {
     setToShowMovies(removed);
     setOnce(false);
 
-    if (!filter?.saved) {
+    if (!filter?.saved && currentUser._id) {
       setFilterLocalStorage(state => ({
         ...state,
         [currentUser._id]: filter
@@ -107,7 +115,7 @@ function App() {
 
   function filterForNoSaved() {
     setFilter({
-      name: filterLocalStorage[currentUser._id]?.name,
+      name: filterLocalStorage[currentUser._id]?.name || '',
       shortFilm: false,
       saved: false
     })
@@ -219,6 +227,7 @@ function App() {
   }
 
   function handleRegister(formData) {
+    setIsFetchingFromForm(true);
     mainApi
       .signUp(formData)
       .then(({data}) => {
@@ -232,9 +241,13 @@ function App() {
       .catch(({message}) => {
         showModal(message, modal.type_error)
       })
+      .finally(() => {
+        setIsFetchingFromForm(false);
+      })
   }
 
   function handleLogin(formData) {
+    setIsFetchingFromForm(true);
     mainApi
       .signIn(formData)
       .then(({data}) => {
@@ -246,6 +259,9 @@ function App() {
       })
       .catch(({message}) => {
         showModal(message, modal.type_error)
+      })
+      .finally(() => {
+        setIsFetchingFromForm(false);
       })
   }
 
@@ -314,11 +330,17 @@ function App() {
           />
 
           <Route path='/sign-up'>
-            <Register onRegister={handleRegister}/>
+            <Register
+              onRegister={handleRegister}
+              isFetching={isFetchingFromForm}
+            />
           </Route>
 
           <Route path="/sign-in">
-            <Login onLogin={handleLogin}/>
+            <Login
+              onLogin={handleLogin}
+              isFetching={isFetchingFromForm}
+            />
           </Route>
 
           <Route>

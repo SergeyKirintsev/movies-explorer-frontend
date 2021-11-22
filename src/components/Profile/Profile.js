@@ -6,6 +6,7 @@ import {useFormWithValidation} from "../../utils/form-validation";
 import {validationConfig} from "../../utils/constants";
 import {useCallback, useContext, useEffect, useState} from "react";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import isEmail from "validator/es/lib/isEmail";
 
 function Profile({menuState, onSignOut, updateProfile}) {
   const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
@@ -15,6 +16,18 @@ function Profile({menuState, onSignOut, updateProfile}) {
   const isChangeForm = useCallback(() => {
     return JSON.stringify(oldValues) !== JSON.stringify(values)
   }, [oldValues, values])
+
+  const checkValidEmail = (evt) => {
+    const email = evt.target.value;
+
+    if (!isEmail(email)) {
+      evt.target.setCustomValidity("Введите корректный e-mail");
+    } else {
+      evt.target.setCustomValidity("");
+    }
+
+    handleChange(evt);
+  }
 
   useEffect(() => {
     resetForm({ name, email });
@@ -56,7 +69,7 @@ function Profile({menuState, onSignOut, updateProfile}) {
                 <input
                   className="profile__form-input"
                   value={values.email || ''}
-                  onChange={handleChange}
+                  onChange={(evt) => checkValidEmail(evt)}
                   type="email"
                   name="email"
                   placeholder="Email"
