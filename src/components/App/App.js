@@ -232,10 +232,11 @@ function App() {
       .signUp(formData)
       .then(({data}) => {
         if (data) {
-          setCurrentUser(data)
-          setLoggedIn(true);
-          history.push('/movies');
-          showModal('Вы зарегистрированы!', modal.type_ok)
+          // setCurrentUser(data)
+          // setLoggedIn(true);
+          // history.push('/movies');
+          handleLogin(formData);
+          showModal('Вы зарегистрированы!', modal.type_ok);
         }
       })
       .catch(({message}) => {
