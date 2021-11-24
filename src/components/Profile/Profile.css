@@ -61,7 +61,7 @@
 
     color: #EE3465;
 
-    display: none;
+    /*display: none;*/
 }
 
 .profile__form-title {
@@ -111,5 +111,12 @@
 
 .profile__btn_exit {
     color: #EE3465;
+}
+
+.profile__btn_disabled {
+    /*background: #F8F8F8;*/
+    /*color: #C2C2C2;*/
+    opacity: 0.3;
+    pointer-events: none;
 }
 

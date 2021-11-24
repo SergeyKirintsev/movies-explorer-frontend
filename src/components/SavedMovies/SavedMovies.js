@@ -4,8 +4,15 @@ import Footer from "../Footer/Footer";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Navigation from "../Navigation/Navigation";
 import Burger from "../Burger/Burger";
+import Preloader from "../Preloader/Preloader";
+import {useEffect} from "react";
 
-function SavedMovies({menuState}) {
+function SavedMovies({menuState, movies, createMovie, deleteMovie, savedMovies, findFilms, filterForSaved}) {
+
+  useEffect(() => {
+    filterForSaved()
+  }, [])
+
   return (
     <>
       <Header>
@@ -14,8 +21,17 @@ function SavedMovies({menuState}) {
       </Header>
 
       <main className="content">
-        <SearchForm />
-        <MoviesCardList movies={new Array(4).fill(1)}/>
+        <SearchForm findFilms={findFilms}/>
+
+        { movies.length > 0
+            ? <MoviesCardList
+              movies={movies}
+              createMovie={createMovie}
+              deleteMovie={deleteMovie}
+              savedMovies={savedMovies}
+            />
+            : <h2 className='movies__error'>Ничего не найдено!</h2>
+        }
       </main>
 
       <Footer/>

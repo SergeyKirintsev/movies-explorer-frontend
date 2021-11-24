@@ -29,7 +29,7 @@
 
 .login-form__input {
   padding: 0 0 10px;
-  margin-bottom: 24px;
+  /*margin-bottom: 24px;*/
   width: 100%;
   background: transparent;
 
@@ -69,6 +69,24 @@
   text-align: center;
 
   color: #FFFFFF;
+}
+
+.login-form__input-error {
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #EE3465;
+  margin-bottom: 24px;
+}
+
+.login-form__section {
+  padding-bottom: 24px;
+}
+
+.login-form__submit_disabled {
+  background: #F8F8F8;
+  color: #C2C2C2;
+  pointer-events: none;
 }
 
 .login-form__span {

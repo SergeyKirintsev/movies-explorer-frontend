@@ -5,8 +5,30 @@ import Footer from "../Footer/Footer";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Navigation from "../Navigation/Navigation";
 import Burger from "../Burger/Burger";
+import Preloader from "../Preloader/Preloader";
+import {useEffect} from "react";
 
-function Movies({menuState}) {
+function Movies(
+  {
+    menuState,
+    isFetching,
+    findFilms,
+    movies,
+    moveFilterToShow,
+    filteredMovies,
+    isFetchingError,
+    once,
+    createMovie,
+    deleteMovie,
+    savedMovies,
+    filterForNoSaved,
+    searchString,
+  }) {
+
+  useEffect(() => {
+    filterForNoSaved();
+  }, [])
+
   return (
     <>
       <Header>
@@ -15,9 +37,34 @@ function Movies({menuState}) {
       </Header>
 
       <main className="content">
-        <SearchForm />
-        <MoviesCardList movies={new Array(10).fill(1)}/>
-        <button className='movies__more-btn'>Ещё</button>
+        <SearchForm findFilms={findFilms} searchString={searchString}/>
+
+        {isFetching && <Preloader/>}
+        {isFetchingError
+          ? <>
+            <p>Во время запроса произошла ошибка.</p>
+            <p>Возможно, проблема с соединением или сервер недоступен.</p>
+            <p>Подождите немного и попробуйте ещё раз</p>
+          </>
+          : movies.length > 0
+            ? <MoviesCardList
+              movies={movies}
+              createMovie={createMovie}
+              deleteMovie={deleteMovie}
+              savedMovies={savedMovies}
+            />
+            : once ? '' : <h2 className='movies__error'>Ничего не найдено!</h2>
+            // : once ? <Preloader/> : !isFetching && <h2>Ничего не найдено!</h2>
+        }
+
+        {filteredMovies.length > 0 &&
+        <button
+          onClick={moveFilterToShow}
+          className='movies__more-btn'
+        >
+          Ещё
+        </button>
+        }
       </main>
 
       <Footer/>

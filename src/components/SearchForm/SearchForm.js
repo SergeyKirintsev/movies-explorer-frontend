@@ -1,25 +1,49 @@
 import './SearchForm.css';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import img from '../../images/find-icon.svg';
+import {useFormWithValidation} from "../../utils/form-validation";
+import {useEffect} from "react";
 
-function SearchForm() {
+function SearchForm({findFilms, searchString}) {
+  const { values, handleChange, resetForm } = useFormWithValidation();
+
+  useEffect(() => {
+    resetForm({
+      name: searchString || '',
+      shortFilm: false
+    })
+  }, [])
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    findFilms(values);
+  }
+
   return (
     <section className="search-form">
       <div className="search-form__container">
-        <form className="search-form__form">
+        <form className="search-form__form" onSubmit={handleSubmit}>
           <fieldset className="search-form__fieldset">
             <img className="search-form__img" src={img} alt="Иконка поиска"/>
-            <input className="search-form__input" placeholder="Фильм" />
+            <input
+              name="name"
+              value={values.name || ''}
+              onChange={handleChange}
+              className="search-form__input"
+              placeholder="Фильм"
+              autoComplete="off"
+            />
             <button className="search-form__submit-btn" type="submit" />
           </fieldset>
           <fieldset className="search-form__fieldset">
-            <FilterCheckbox />
+            <FilterCheckbox
+              values={values}
+              onChange={handleChange}
+            />
             <span className="search-form__span">Короткометражки</span>
           </fieldset>
         </form>
       </div>
-
-
     </section>
   );
 }

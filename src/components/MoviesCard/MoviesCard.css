@@ -22,6 +22,21 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: #313131;
+
+  cursor: pointer;
+}
+
+.card__like-btn:hover {
+  transition: 0.5s;
+  opacity: 0.6;
+}
+
+.card__like-btn_no-like {
+  background-image: url(../../images/icon__no-liked.svg);
+}
+
+.card__like-btn_delete {
+  background-image: url(../../images/close.svg);
 }
 
 .card__wrap {
@@ -58,6 +73,12 @@
 
   padding-top: 6px;
   border-top: 1px solid #424242;
+}
+
+.block {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1000px) {

@@ -1,16 +1,25 @@
 import {Link} from "react-router-dom";
 import './LoginForm.css';
 
-function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText}) {
+function LoginForm({title, submitBtnText, children, linkTo, linkInfo, linkText, isValid, onSubmit, isFetching}) {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit();
+  };
 
   return (
-      <form className="login-form" name="loginForm">
+      <form className="login-form" name="loginForm" noValidate onSubmit={handleSubmit}>
         <div className='login-form__inputs'>
           <h2 className="login-form__title">{title}</h2>
           {children}
         </div>
         <div className='login-form__info'>
-          <button type="submit" className="login-form__submit btn-hover">
+          <button
+            disabled={isFetching}
+            type="submit"
+            className={`login-form__submit btn-hover ${!isValid ? 'login-form__submit_disabled' : 'df'}`}
+          >
             {submitBtnText}
           </button>
           <span className='login-form__span'>{linkInfo}</span>
